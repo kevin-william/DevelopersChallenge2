@@ -1,0 +1,21 @@
+
+<div *ngIf="isListEmpty">
+  <h3>
+    There is no items saved so far
+  </h3>
+</div>
+<table *ngIf="!isListEmpty" class="table table-striped" > 
+  <tr>
+    <th>Type</th>
+    <th>Value</th>
+    <th>Occurrence</th>
+    <th>Description</th>    
+  </tr>
+
+  <tr *ngFor="let t of ofxEntity.ofxTransactions">
+    <td>{{getTransactionType(t.type)}}</td>
+    <td>{{t.value}}{{getCurrencyType(ofxEntity.currency)}}</td>
+    <td>{{t.dateTime | date:' dd/MM/yyyy h:mm'}}</td>
+    <td>{{t.description}}</td>    
+  </tr>                 
+</table>

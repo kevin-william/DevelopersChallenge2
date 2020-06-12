@@ -1,0 +1,23 @@
+<div class="container">   
+  <h1>OFX File Reader</h1>
+  
+  <form >
+    <label for='inputfile'>Choose a file</label>      
+    <input id="inputfile" type="file" (change)="afterFileSelect($event)" class="inputfile">
+    <button (click)="onSendFileButtonClick()" >send file</button>        
+  </form>  
+
+  <div *ngIf="hasFiles">
+    <h3>Files added: </h3>
+
+    <ul>
+      <li *ngFor="let f of fileList">
+      {{ f.name }}
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+
+
